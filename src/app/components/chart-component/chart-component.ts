@@ -29,8 +29,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './chart-component.scss',
 })
 export class ChartComponent implements OnInit, OnChanges {
-  data: any;
-  options: any;
+  data: any = {};
+  options: any = {};
 
   buttonGroup: string[] = ['1D', '1S', '1M', '3M', '6M', '1Y', '5Y'];
   selectedButton: string = '1D';

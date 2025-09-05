@@ -11,5 +11,12 @@ export class InstrumentItemComponent implements OnInit {
   @Input() instrument: any = {};
 
   ngOnInit(): void {
+    this.loadInstrumentData();
+  }
+
+  loadInstrumentData(): void {
+    if (this.instrument) {
+      console.log(this.instrument);
+    }
   }
 }

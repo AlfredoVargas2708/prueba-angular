@@ -31,6 +31,10 @@ export class SearchBarComponent implements OnInit {
   selectedIndex: string = 'IPSA';
 
   ngOnInit(): void {
+    this.loadInstruments();
+  }
+
+  loadInstruments() {
     this.dataService.getInstruments().subscribe({
       next: (data) => {
         this.instruments = data.map((item) => item.name);

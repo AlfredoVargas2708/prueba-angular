@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     }
   }
 
-  private loadIndexData(): void {
+  loadIndexData(): void {
     if (this.index) {
       this.dataService.getInfo(this.index).subscribe({
         next: (data) => {

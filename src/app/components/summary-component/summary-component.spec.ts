@@ -21,4 +21,10 @@ describe('SummaryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should init data', () => {
+    component.loadInfo();
+    expect(component.info).not.toBeNull();
+    expect(component.price).not.toBeNull();
+  });
 });

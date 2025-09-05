@@ -20,4 +20,9 @@ describe('InstrumentItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should init instrument', () => {
+    component.loadInstrumentData();
+    expect(component.instrument).toBeDefined();
+  });
 });

@@ -21,4 +21,24 @@ describe('SearchBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should load instruments', () => {
+    component.loadInstruments();
+    expect(component.instruments).toBeDefined();
+  });
+
+  it('should filter instruments', () => {
+    component.filterInstruments({ query: 'IPSA' });
+    expect(component.filteredInstruments).toBeDefined();
+  });
+
+  it('should select instrument', () => {
+    component.onSelect({ value: 'IPSA' });
+    expect(component.selectedIndex).toBe('IPSA');
+  });
+
+  it('should clear selection', () => {
+    component.onClear();
+    expect(component.selectedIndex).toBe('');
+  });
 });

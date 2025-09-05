@@ -14,6 +14,10 @@ export class InstrumentListComponent implements OnInit{
   @Input() column: string = 'name';
 
   ngOnInit(): void {
+    this.sortInstruments();
+  }
+
+  sortInstruments() {
     this.instruments.sort((a, b) => {
       if (a[this.column] < b[this.column]) {
         return this.order === 'asc' ? -1 : 1;

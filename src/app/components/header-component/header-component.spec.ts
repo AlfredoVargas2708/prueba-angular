@@ -21,4 +21,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should init data', () => {
+    component.loadIndexData();
+    expect(component.info).toBeDefined();
+    expect(component.price).toBeDefined();
+  });
 });

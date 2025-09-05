@@ -3,7 +3,6 @@ import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Json } from '../interfaces/json';
 import { Chart } from '../interfaces/chart';
-import { Info } from '../interfaces/info';
 import { Data } from '../interfaces/data';
 
 @Injectable({

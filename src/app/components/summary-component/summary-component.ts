@@ -9,9 +9,9 @@ import { Price } from '../../interfaces/price';
   selector: 'app-summary-component',
   imports: [CommonModule, TabsModule],
   templateUrl: './summary-component.html',
-  styleUrl: './summary-component.scss'
+  styleUrl: './summary-component.scss',
 })
-export class SummaryComponent implements OnInit{
+export class SummaryComponent implements OnInit {
   @Input() index: string = '';
   info: Info = {} as Info;
   price: Price = {} as Price;
@@ -19,14 +19,18 @@ export class SummaryComponent implements OnInit{
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.loadInfo();
+  }
+
+  loadInfo() {
     this.dataService.getInfo(this.index).subscribe({
       next: (data) => {
         this.info = data.info;
-        this.price = data.price ? data.price : {} as Price;
+        this.price = data.price ? data.price : ({} as Price);
       },
       error: (error) => {
         console.log(error);
-      }
-    })
+      },
+    });
   }
 }

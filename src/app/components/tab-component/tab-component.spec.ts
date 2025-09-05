@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabComponent } from './tab-component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TabComponent', () => {
   let component: TabComponent;
@@ -8,7 +9,7 @@ describe('TabComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabComponent]
+      imports: [TabComponent, HttpClientModule]
     })
     .compileComponents();
 

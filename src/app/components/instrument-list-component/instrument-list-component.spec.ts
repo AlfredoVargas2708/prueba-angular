@@ -20,4 +20,11 @@ describe('InstrumentListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should init data and sort instruments', () => {
+    component.sortInstruments();
+    expect(component.instruments).toBeDefined();
+    expect(component.order).toBeDefined();
+    expect(component.column).toBeDefined();
+  });
 });
