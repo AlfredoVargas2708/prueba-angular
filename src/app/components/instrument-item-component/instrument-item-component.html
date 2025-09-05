@@ -1,0 +1,34 @@
+<div class="instrument">
+    <p class="name">{{ instrument.shortName }}</p>
+    <p class="last">{{ instrument.lastPrice }}</p>
+    <p class="money">{{ (instrument.accumulatedVolumeMoney / 1000000).toFixed(2) }}</p>
+    <p class="day" [ngStyle]="{ color: instrument.pctDay === 0 ? 'white' : instrument.pctDay > 0 ? 'green' : 'red' }">
+        <span>
+            @if (instrument.pctDay > 0) {
+            <i class="pi pi-plus"></i>
+            }
+        </span>
+        {{ instrument.pctDay ? instrument.pctDay.toFixed(2) : 0 }}%
+    </p>
+    <p class="month" [ngStyle]="{ color: instrument.pct30D === 0 ? 'white' : instrument.pct30D > 0 ? 'green' : 'red' }">
+        <span>
+            @if (instrument.pct30D > 0) {
+            <i class="pi pi-plus"></i>
+            }
+        </span>
+        {{ instrument.pct30D ? instrument.pct30D.toFixed(2) : 0 }}%</p>
+    <p class="year" [ngStyle]="{ color: instrument.pctCY === 0 ? 'white' : instrument.pctCY > 0 ? 'green' : 'red' }">
+        <span>
+            @if (instrument.pctCY > 0) {
+            <i class="pi pi-plus"></i>
+            }
+        </span>
+        {{ instrument.pctCY ? instrument.pctCY.toFixed(2) : 0 }}%</p>
+    <p class="w52" [ngStyle]="{ color: instrument.pct1Y === 0 ? 'white' : instrument.pct1Y > 0 ? 'green' : 'red' }">
+        <span>
+            @if (instrument.pct1Y > 0) {
+            <i class="pi pi-plus"></i>
+            }
+        </span>
+        {{ instrument.pct1Y ? instrument.pct1Y.toFixed(2) : 0 }}%</p>
+</div>

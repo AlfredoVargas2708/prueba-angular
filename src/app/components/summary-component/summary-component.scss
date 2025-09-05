@@ -1,0 +1,75 @@
+.p-component {
+  background-color: transparent;
+}
+
+.p-tablist-tab-list {
+  justify-content: space-between;
+
+  .p-ripple.p-tab {
+    width: 50%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.cotization {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+
+  .value {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 0.5rem;
+
+    p {
+      font-size: 13px;
+    }
+  }
+}
+
+.values {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.market,
+.open,
+.close,
+.max-daily,
+.min-daily,
+.max-year,
+.min-year,
+.variation > .header,
+.variation > .values > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  p {
+    width: 150px;
+    flex-wrap: wrap;
+  }
+
+  span {
+    font-size: 14px;
+  }
+
+  .value {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 13px;
+    }
+  }
+}

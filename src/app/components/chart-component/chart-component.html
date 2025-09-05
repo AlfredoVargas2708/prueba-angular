@@ -1,0 +1,29 @@
+<div class="chart-container">
+  <div class="chart-wrapper">
+    <p-chart
+      type="line"
+      [data]="data"
+      [options]="options"
+      style="width: 100%; height: 400px"
+    ></p-chart>
+  </div>
+  <div class="buttons">
+    <p-buttongroup>
+      @for (button of buttonGroup; track $index) {
+      <p-button
+        [label]="button"
+        [severity]="selectedButton === button ? 'primary' : 'secondary'"
+        (click)="changeButton(button)"
+      ></p-button>
+      }
+    </p-buttongroup>
+    <p-datepicker
+      [(ngModel)]="selectedDates"
+      [showIcon]="true"
+      inputId="buttondisplay"
+      selectionMode="range"
+      [showOnFocus]="false"
+      (onSelect)="changeDate()"
+    />
+  </div>
+</div>

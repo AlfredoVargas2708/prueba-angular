@@ -1,0 +1,18 @@
+<div class="layout">
+    <header>
+        <app-search-bar-component (indexSelected)="onIndexSelected($event)"></app-search-bar-component>
+    </header>
+    <main>
+        <div class="main-content">
+            <app-header-component [index]="index"></app-header-component>
+            <app-chart-component [index]="index"></app-chart-component>
+        </div>
+        <div class="summary">
+            <app-summary-component [index]="index"></app-summary-component>
+        </div>
+    </main>
+
+    <footer>
+        <app-tab-component [index]="index"></app-tab-component>
+    </footer>
+</div>

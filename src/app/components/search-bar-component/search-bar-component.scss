@@ -1,0 +1,9 @@
+.input-search {
+    width: 100%;
+    background-color: transparent;
+
+    &:focus {
+        background-color: transparent;
+        border-color: #fff;
+    }
+}

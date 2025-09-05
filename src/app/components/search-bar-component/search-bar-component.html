@@ -1,0 +1,22 @@
+<p-iconfield>
+    <p-inputicon class="pi pi-search" />
+    <p-autoComplete 
+        [(ngModel)]="selectedInstrument"
+        [suggestions]="filteredInstruments" 
+        (completeMethod)="filterInstruments($event)"
+        (onSelect)="onSelect($event)"
+        (onClear)="onClear()"
+        placeholder="Busca un instrumento" 
+        class="input-search"
+        [dropdown]="true"
+        [showClear]="true"
+        [minLength]="1">
+        
+        <ng-template pTemplate="item" let-item>
+            <div class="flex align-items-center">
+                <i class="pi pi-chart-line mr-2"></i>
+                <span>{{ item }}</span>
+            </div>
+        </ng-template>
+    </p-autoComplete>
+</p-iconfield>

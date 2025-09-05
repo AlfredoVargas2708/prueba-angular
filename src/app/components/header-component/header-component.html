@@ -1,0 +1,54 @@
+@if(info && price) {
+<div class="header">
+  <div class="title">
+    <h1>{{ index }}, {{ info.countryName | uppercase }}</h1>
+  </div>
+  <div class="indexs">
+    <p class="index-text">{{ "indice" | titlecase }}</p>
+    <hr />
+    <div class="values">
+      <div class="actual">
+        <p>{{ "valor actual" | titlecase }}</p>
+        <div class="value">
+          @if(price.tend === 'down') {
+          <i class="pi pi-arrow-down"></i>
+          } @if(price.tend === 'up') {
+          <i class="pi pi-arrow-up"></i>
+          }
+          <span>{{ price.lastPrice }}</span>
+        </div>
+      </div>
+      <div class="variation-actual">
+        <p>{{ "var.% actual" | titlecase }}</p>
+        <div class="value">
+          @if (price.performanceRelative > 0) {
+          <i class="pi pi-plus"></i>
+          }
+          <span
+            [ngStyle]="{
+              color: price.performanceRelative > 0 ? 'green' : 'red'
+            }"
+            >{{ price.performanceRelative ? price.performanceRelative.toFixed(2) : 0 }}%</span
+          >
+        </div>
+      </div>
+      <div class="variation-points">
+        <p>{{ "var. puntos actual" | titlecase }}</p>
+        <div class="value">
+          @if (price.performanceAbsolute > 0) {
+          <i class="pi pi-plus"></i>
+          }
+          <span
+            [ngStyle]="{
+              color: price.performanceAbsolute > 0 ? 'green' : 'red'
+            }"
+            >{{ price.performanceAbsolute ? price.performanceAbsolute.toFixed(2) : 0 }}</span
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
+
+}

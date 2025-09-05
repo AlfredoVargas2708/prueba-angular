@@ -1,0 +1,104 @@
+<p-tabs value="1">
+  <p-tablist>
+    <p-tab value="0">{{ "resumen" | titlecase }}</p-tab>
+    <p-tab value="1">{{ "detalles" | titlecase }}</p-tab>
+  </p-tablist>
+  <p-tabpanels>
+    <p-tabpanel value="0">
+      <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </p-tabpanel>
+    <p-tabpanel value="1">
+      <div class="cotization">
+        <p>{{ "cotización" | titlecase }}</p>
+        <div class="value">
+          <p>
+            {{ price.datetimeLastPrice | date : "dd/MM/yyyy - HH:mm:ss" }}
+          </p>
+          <p>{{ price.datetimeLastPrice | date : "a" | lowercase }}</p>
+        </div>
+      </div>
+      <hr />
+      <div class="values">
+        <div class="market">
+          <p>{{ "mercado" | uppercase }}</p>
+          <span>{{ info.marketName }}</span>
+        </div>
+        <div class="open">
+          <p>{{ "apertura" | uppercase }}</p>
+          <span>{{ price.openPrice }}</span>
+        </div>
+        <div class="close">
+          <p>{{ "cierre" | uppercase }}</p>
+          <span>{{ price.closePrice }}</span>
+        </div>
+        <div class="max-daily">
+          <p>{{ "máximo diario" | uppercase }}</p>
+          <span>{{ price.maxDay }}</span>
+        </div>
+        <div class="min-daily">
+          <p>{{ "mínimo diario" | uppercase }}</p>
+          <span>{{ price.minDay }}</span>
+        </div>
+        <div class="max-year">
+          <p>{{ "máximo 52 semanas" | uppercase }}</p>
+          <span>{{ price.max52W }}</span>
+        </div>
+        <div class="min-year">
+          <p>{{ "mínimo 52 semanas" | uppercase }}</p>
+          <span>{{ price.min52W }}</span>
+        </div>
+      </div>
+      <br />
+      <div class="variation">
+        <div class="header">
+          <p>{{ "variación" | titlecase }}</p>
+          <span>%</span>
+        </div>
+        <hr />
+        <div class="values">
+          <div class="month">
+            <p>{{ "1 mes" | uppercase }}</p>
+            <div class="value">
+              @if(price.pct30D > 0) {
+              <i class="pi pi-plus" style="font-size: 8px; color: green;"></i>
+              }
+              <span [ngStyle]="{ color: price.pct30D > 0 ? 'green' : 'red' }"
+                >{{ price.pct30D ? price.pct30D.toFixed(2) : 0 }}%</span
+              >
+            </div>
+          </div>
+          <div class="year">
+            <p>{{ "1 año" | uppercase }}</p>
+            <div class="value">
+              @if(price.pctRelW52 > 0) {
+              <i class="pi pi-plus" style="font-size: 8px; color: green;"></i>
+              }
+              <span [ngStyle]="{ color: price.pctRelW52 > 0 ? 'green' : 'red' }"
+                >{{ price.pctRelW52 ? price.pctRelW52.toFixed(2) : 0 }}%</span
+              >
+            </div>
+          </div>
+          <div class="actual-year">
+            <p>{{ "año a la fecha" | uppercase }}</p>
+              <div class="value">
+              @if(price.pctRelCY > 0) {
+              <i class="pi pi-plus" style="font-size: 8px; color: green;"></i>
+              }
+              <span [ngStyle]="{ color: price.pctRelCY > 0 ? 'green' : 'red' }"
+                >{{ price.pctRelCY ? price.pctRelCY.toFixed(2) : 0 }}%</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabpanel>
+  </p-tabpanels>
+</p-tabs>

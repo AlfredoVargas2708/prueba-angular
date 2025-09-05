@@ -1,0 +1,54 @@
+<p-tabs value="{{ index }}">
+  <p-tablist>
+    @for(tab of tabs; track tab.value){
+    <p-tab [value]="tab.value">
+      <span>{{ tab.text }}</span>
+    </p-tab>
+    }
+  </p-tablist>
+  <p-tabpanels>
+    <p-tabpanel value="{{ index }}">
+      @for (i of [0, 1]; track $index) {
+      <div class="list">
+        <div class="header">
+          <div class="name">
+            <p>{{ "nombre" | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'name' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('name')"></i>
+          </div>
+          <div class="last">
+            <p>{{ "último" | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'lastPrice' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('lastPrice')"></i>
+          </div>
+          <div class="money">
+            <p>{{ "monto (M/M)" | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'accumulatedVolumeMoney' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('accumulatedVolumeMoney')"></i>
+          </div>
+          <div class="day">
+            <p>{{ "var. día" | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'pctDay' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('pctDay')"></i>
+          </div>
+          <div class="month">
+            <p>{{ "var. 30d." | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'pct30D' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('pct30D')"></i>
+          </div>
+          <div class="year">
+            <p>{{ "año actual" | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'pctCY' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('pctCY')"></i>
+          </div>
+          <div class="w52">
+            <p>{{ "12 meses" | titlecase }}</p>
+            <i [ngClass]="order === 'asc' && column === 'pct1Y' ? 'pi pi-sort-amount-down-alt' : 'pi pi-sort-amount-down'" (click)="orderByColumn('pct1Y')"></i>
+          </div>
+        </div>
+        <div class="items">
+          <app-instrument-list-component
+            [instruments]="instruments.slice(i * instruments.length / 2, (i + 1) * instruments.length / 2)"
+            [order]="order"
+            [column]="column"
+          ></app-instrument-list-component>
+        </div>
+      </div>
+      }
+    </p-tabpanel>
+  </p-tabpanels>
+</p-tabs>

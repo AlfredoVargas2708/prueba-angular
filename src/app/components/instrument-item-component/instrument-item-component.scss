@@ -1,0 +1,37 @@
+.instrument {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.name,
+.last,
+.money,
+.day,
+.month,
+.year,
+.w52 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  font-size: 13px;
+
+  i {
+    font-size: 8px;
+  }
+}
+
+.name {
+  width: 110px;
+  justify-content: start;
+}
+
+.last,
+.money,
+.day,
+.month,
+.year,
+.w52 {
+  width: 85px;
+  justify-content: end;
+}
